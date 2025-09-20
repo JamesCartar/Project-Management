@@ -3,7 +3,7 @@ import { serialize } from "cookie";
 import { createJWT, hashPassword } from "@/lib/auth";
 import { db } from "@/lib/db";
 
-export default async function register(
+export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {

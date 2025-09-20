@@ -25,7 +25,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
 	const { projects } = await getData(params.id);
 
 	return (
-		<div className="h-full overflow-y-auto pr-6 w-full">
+		<div className="h-full overflow-y-auto w-full ps-6">
 			<TaskCard tasks={projects?.tasks} title={projects?.name || ""} />
 		</div>
 	);

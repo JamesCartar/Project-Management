@@ -45,3 +45,14 @@ export const signin = async ({
 }) => {
 	return fetcher({ url: "/api/signin", method: "POST", body: user });
 };
+
+export const createNewProject = (name: string) => {
+	return fetcher({
+		url: "/api/projects",
+		method: "POST",
+		body: {
+			name
+		},
+		json: true
+	});
+};

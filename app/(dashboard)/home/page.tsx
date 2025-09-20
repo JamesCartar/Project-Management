@@ -1,5 +1,6 @@
 import Greeting from "@/components/Greeting";
 import GreetingsSkeleton from "@/components/GreetingSkeleton";
+import NewProject from "@/components/NewProject";
 import ProjectCard from "@/components/ProjectCard";
 import TaskCard from "@/components/TaskCard";
 import { delay } from "@/lib/async";
@@ -29,7 +30,7 @@ export default async function Page() {
 	const { projects } = await getData();
 
 	return (
-		<div className="h-full overflow-y-auto pr-6 w-full">
+		<div className="h-full overflow-y-auto ps-6 w-full">
 			<div className=" h-full items-stretch justify-center min-h-[content]">
 				<div className="flex-1 grow flex">
 					<Suspense fallback={<GreetingsSkeleton />}>
@@ -44,7 +45,9 @@ export default async function Page() {
 							</Link>
 						</div>
 					))}
-					<div className="w-1/3 p-3">{/* new project here */}</div>
+					<div className="w-1/3 p-3">
+						<NewProject />
+					</div>
 				</div>
 				<div className="mt-6 flex-2 grow w-full flex">
 					<div className="w-full">

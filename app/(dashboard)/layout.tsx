@@ -9,10 +9,11 @@ export default function DashboardRootLayout({ children }: PropsWithChildren) {
 		<html lang="en">
 			<head />
 			<body className="h-screen w-screen candy-mesh p-6">
-				<GlassPane className="w-full h-full flex items-center justify-center">
+				<GlassPane className="w-full h-full flex items-center justify-center p-6">
 					<Sidebar />
 					{children}
 				</GlassPane>
+				<div id="modal"></div>
 			</body>
 		</html>
 	);
