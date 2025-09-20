@@ -1,6 +1,8 @@
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt";
 import { SignJWT, jwtVerify } from "jose";
+import { ReadonlyRequestCookies } from "next/dist/server/app-render";
+import { RequestCookies } from "next/dist/server/web/spec-extension/cookies";
 
 import { db } from "./db";
 
@@ -28,4 +30,20 @@ export const validateJWT = async (jwt: string) => {
 	);
 
 	return payload.payload as any;
+};
+
+export const getUserFromCookie = async (
+	cookies: RequestCookies | ReadonlyRequestCookies
+) => {
+	const jwt = cookies.get(process.env.COOKIE_NAME!);
+
+	const { id } = await validateJWT(jwt?.value as unknown as string);
+
+	const user = await db.user.findUnique({
+		where: {
+			id
+		}
+	});
+
+	return user;
 };
