@@ -1,9 +1,9 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { serialize } from "cookie";
 import { createJWT, hashPassword } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { NextApiRequest, NextApiResponse } from "next";
+import { serialize } from "cookie";
 
-export default async function handler(
+export default async function register(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
